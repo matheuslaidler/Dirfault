@@ -1,3 +1,8 @@
+"""
+Nota de lembrete: um simples script feito originalmente em 2020 - ficou esquecido no hd
+créditos: matheus laidler
+-- ele veio enquanto fazia o pyckagetool script - trabalho final na ufrj
+"""
 import requests
 import time
 
@@ -46,3 +51,57 @@ def leave():
 
 # Chamada da função principal
 bruteforceDir()
+
+
+"""
+versão refeita em inglês - teste
+
+import requests
+import time
+
+def directory_search():
+    '''
+    This function performs a brute force search on a specified website to check
+    for the existence of certain directories or the robots.txt file, aiming to
+    identify which directories may not be visible to search engines.
+    '''
+    # Prompt the user to input the target website
+    site = input("Enter a website URL> ")
+
+    # List of directories and files to be tested
+    directories = ["/wp-admin", "/admin", "/login", "/register", "/robots.txt", "/ftp", "/hpp", "/archives"]
+
+    # Iterate over each directory in the list
+    for directory in directories:
+        # Concatenate the directory with the website URL
+        url = site + directory
+        # Send a GET request to the URL
+        response = requests.get(url)
+        # Check the status code of the response
+        status = response.status_code
+        # Check if the directory exists (status code 200)
+        if status == 200:
+            print(f"The directory {directory} exists.")
+        else:
+            print(f"The directory {directory} was not found.")
+
+    # Wait for 1 second before continuing
+    time.sleep(1)
+    print("                         ")
+    return exit_or_continue()
+
+def exit_or_continue():
+    '''
+    Function to ask the user whether to exit the program or continue.
+    '''
+    response = input("Do you want to exit? (yes/no): ")
+    if response.lower() == "yes":
+        print("Program terminated.")
+        exit()
+    else:
+        directory_search()
+
+# Call the main function
+directory_search()
+
+"""
