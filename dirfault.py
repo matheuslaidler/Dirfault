@@ -13,7 +13,7 @@ def directory_search():
     mecanismos de busca.
     '''
     # Prompt and print
-    print("DIRFAULT by matheuslaidler \n Type the full website link you want without the last slash '/' and use 'www' sub when necessary \n  ( e.g. https://matheuslaidler.github.io/ || https://www.google.com/ )\n")
+    print("DIRFAULT by matheuslaidler \n Type the full website link you want without the last slash '/' and use 'www' sub just when necessary \n  ( e.g. https://matheuslaidler.github.io/ || https://www.google.com/ )\n")
     site = input(" Enter a valid URL> ")
 
     # List  || Lista 
