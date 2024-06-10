@@ -12,27 +12,27 @@ def directory_search():
     a fim de identificar quais diretórios não podem ser vistos por 
     mecanismos de busca.
     '''
-    # Prompt the user to input the target website || Solicita ao usuário que insira o site alvo
+    # Prompt and print
     print("DIRFAULT by matheuslaidler \n Type the full website link you want with the last slash '/' and use 'www' if/when necessary \n  ( e.g. https://matheuslaidler.github.io/ || https://www.google.com/ )\n")
     site = input(" Enter a valid URL> ")
 
-    # List of directories and files to be tested || Lista de diretórios e arquivos a serem testados
+    # List  || Lista 
     directories = ["wp-admin", "admin", "login", "register", "robots.txt", "ftp", "hpp", "archives", ".aws/", ".git/", ".htaccess/"]
 
     # Iterate over each directory in the list || Itera sobre cada diretório na lista
     for directory in directories:
-        # Concatenate the directory with the website URL || Concatena o diretório ao site
+        # Concatenate the directory with the website URL || Concatena o diretório ao site -> input+array
         url = site + directory
         # Send a GET request to the URL || Realiza a requisição GET ao site
         response = requests.get(url)
         # Check the status code of the response || Verifica o código de status da resposta
         status = response.status_code
-        # Check if exists (status code 200) || Verifica se o diretório existe (código de status 200)
+        # Response Results || Resultado daa requisições / respostas
         if status < 200:
             print(f" * {url} received the request => [status code {status} informational response]")
             #the request was received, continuing process - 1xx - example; The server responds with a 102 Processing status code, which indicates that it has received the request and is currently processing it, but has not yet completed the request. The server includes an empty response body with no content, and a few headers like Date and Server .
         elif 199 < status < 300:
-            print(f" * {url} exists => [status code {status} successful] => {directory} found!!")
+            print(f" * {url} exists => [status code {status} successful] => /{directory} found!!")
             #the request was successfully received, understood, and accepted - 2xx
         elif 299 < status < 400:
             print(f" * {url} is redirecting => [status code {status} redirection]")
@@ -57,7 +57,7 @@ def leave():
     '''
     response = input(" Do you want to exit? (yes/no): ")
     if response.lower() == "yes":
-        print("Program terminated.")
+        print(" Program terminated. -> go star this on github.com/matheuslaidler/Dirfault-Search")
         exit()
     else:
         directory_search()
