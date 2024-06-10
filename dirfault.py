@@ -1,4 +1,4 @@
-import requests # type: ignore
+import requests 
 import time
 
 def directory_search():
