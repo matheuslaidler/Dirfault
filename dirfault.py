@@ -57,7 +57,7 @@ def leave():
     '''
     response = input(" Do you want to exit? (yes/no): ")
     if response.lower() == "yes":
-        print(" Program terminated. -> go star this on github.com/matheuslaidler/Dirfault-Search")
+        print(" Program terminated. -> go star this on github.com/matheuslaidler/Dirfault")
         exit()
     else:
         directory_search()
