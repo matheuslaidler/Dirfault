@@ -13,7 +13,7 @@ def directory_search():
     mecanismos de busca.
     '''
     # Prompt and print
-    print("DIRFAULT by matheuslaidler \n Type the full website link you want with the last slash '/' and use 'www' if/when necessary \n  ( e.g. https://matheuslaidler.github.io/ || https://www.google.com/ )\n")
+    print("DIRFAULT by matheuslaidler \n Type the full website link you want without the last slash '/' and use 'www' sub when necessary \n  ( e.g. https://matheuslaidler.github.io/ || https://www.google.com/ )\n")
     site = input(" Enter a valid URL> ")
 
     # List  || Lista 
@@ -22,7 +22,7 @@ def directory_search():
     # Iterate over each directory in the list || Itera sobre cada diretório na lista
     for directory in directories:
         # Concatenate the directory with the website URL || Concatena o diretório ao site -> input+array
-        url = site + directory
+        url = site + "/" + directory
         # Send a GET request to the URL || Realiza a requisição GET ao site
         response = requests.get(url)
         # Check the status code of the response || Verifica o código de status da resposta
