@@ -1,4 +1,4 @@
-import requests
+import requests # type: ignore
 import time
 
 def directory_search():
@@ -29,19 +29,19 @@ def directory_search():
         status = response.status_code
         # Check if exists (status code 200) || Verifica se o diretório existe (código de status 200)
         if status < 200:
-            print(f" * {site}{directory} received the request => [status code {status} - informational response]")
+            print(f" * {url} received the request => [status code {status} informational response]")
             #the request was received, continuing process - 1xx - example; The server responds with a 102 Processing status code, which indicates that it has received the request and is currently processing it, but has not yet completed the request. The server includes an empty response body with no content, and a few headers like Date and Server .
         elif 199 < status < 300:
-            print(f" * {site}{directory} exists => [status code {status} - successful!!]")
+            print(f" * {url} exists => [status code {status} successful] => {directory} found!!")
             #the request was successfully received, understood, and accepted - 2xx
         elif 299 < status < 400:
-            print(f" * {site}{directory} is redirecting => [status code {status} - redirection]")
+            print(f" * {url} is redirecting => [status code {status} redirection]")
             #further action needs to be taken in order to complete the request - 3xx
         elif 399 < status < 500:
-            print(f" * {site}{directory} was not found => [status code {status} - client error]")
+            print(f" * {url} was not found => [status code {status} client error]")
             #the request contains bad syntax or cannot be fulfilled - 4xx
         else:
-            print(f" * {site}{directory} was inaccessible => [status code {status} - server error]")
+            print(f" * {url} was inaccessible => [status code {status} server error]")
             #the server failed to fulfil an apparently valid request - 5xx
 
     # Delay / Wait for X second(s) before continuing || Aguarda X segundo(s) antes de continuar
@@ -51,11 +51,11 @@ def directory_search():
 
 def leave():
     '''
-    Function to ask the user whether to exit the program or continue.
+    Function to ask user whether to exit the program or continue.
 
     Função para solicitar ao usuário se deseja sair do programa ou continuar.
     '''
-    response = input("Do you want to exit? (yes/no): ")
+    response = input(" Do you want to exit? (yes/no): ")
     if response.lower() == "yes":
         print("Program terminated.")
         exit()
